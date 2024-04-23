@@ -1,2 +1,4 @@
-RM:......... NOME: ......................TURMA:................
-RM:......... NOME: ......................TURMA:................
+TURMA: 2TDSPG
+
+RM:99741 NOME: Amanda Bomfim De Oliveira
+RM:99627 NOME: Jaci Teixeira Santos

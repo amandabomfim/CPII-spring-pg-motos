@@ -1,5 +1,7 @@
 package br.com.fiap.motos.entity;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,17 +11,29 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Entity
+@Table(name = "TB_CARACTERISTICA", uniqueConstraints = {
+        @UniqueConstraint(name = "UK_NOME", columnNames = "NM_CARACTERISTICA")
+})
 public class Caracteristica {
 
+    @Id
+    @SequenceGenerator(name = "SQ_CARACTERISTICA", sequenceName = "SQ_CARACTERISTICA", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CARACTERISTICA")
+    @Column(name = "ID_CARACTERISTICA")
     private Long id;
 
     //30 digitos
+    @Size(min = 30)
+    @Column(name = "NM_CARACTERISTICA")
     private String nome;
 
     //20 digitos
+    @Size(min = 20)
+    @Column(name = "DS_CARACTERISTICA")
     private String descricao;
 
+    @Column(name = "VEICULO")
     private Veiculo veiculo;
 
 

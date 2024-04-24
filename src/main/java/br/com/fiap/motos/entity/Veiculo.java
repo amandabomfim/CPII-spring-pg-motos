@@ -48,7 +48,15 @@ public class Veiculo {
     @Column(name = "PALAVRA_EFEITO")
     private String palavraDeEfeito;
 
-    @Column(name = "FABRICANTE")
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "FABRICANTE",
+            referencedColumnName = "ID_FABRICANTE",
+            foreignKey = @ForeignKey(
+                    name = "FK_FABRICANTE_VEICULO"
+            )
+    )
     private Fabricante fabricante;
 
 

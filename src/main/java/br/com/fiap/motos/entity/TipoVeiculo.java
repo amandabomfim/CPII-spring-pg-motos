@@ -19,7 +19,7 @@ public class TipoVeiculo {
     @Id
     @SequenceGenerator(name = "SQ_VEICULO", sequenceName = "SQ_VEICULO", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_VEICULO")
-    @Column(name = "ID_VEICULO")
+    @Column(name = "ID_TIPO_VEICULO")
     private Long id;
 
     @Column(name = "NM_VEICULO")

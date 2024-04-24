@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.Year;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -43,8 +44,6 @@ public class Veiculo {
     @Column(name = "MODELO_VEICULO")
     private String modelo;
 
-    //15 digitos
-    @Size(min = 15)
     @Column(name = "PALAVRA_EFEITO")
     private String palavraDeEfeito;
 

@@ -28,7 +28,7 @@ public class Loja {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(
-            name = "TB_VEICULOS_COMERCIALIZADOS",
+            name = "TB_CP2_VEICULOS_COMERCIALIZADOS",
             joinColumns = {
                     @JoinColumn(
                             name = "LOJA",

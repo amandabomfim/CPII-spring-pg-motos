@@ -1,9 +1,11 @@
 package br.com.fiap.motos.resource;
 
-import br.com.fiap.motos.dto.request.AcessorioRequest;
+import br.com.fiap.motos.dto.request.TipoVeiculoRequest;
 import br.com.fiap.motos.dto.response.AcessorioResponse;
+import br.com.fiap.motos.dto.response.TipoVeiculoResponse;
 import br.com.fiap.motos.entity.Acessorio;
-import br.com.fiap.motos.service.AcessorioService;
+import br.com.fiap.motos.entity.TipoVeiculo;
+import br.com.fiap.motos.service.TipoVeiculoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -16,17 +18,17 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.util.Collection;
 
 @RestController
-@RequestMapping(value = "/acessorio")
-public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioRequest, AcessorioResponse>{
+@RequestMapping(value = "/tipo-veiculo")
+public class TipoVeiculoResource implements ResourceDTO<TipoVeiculo, TipoVeiculoRequest, TipoVeiculoResponse>{
 
     @Autowired
-    private AcessorioService service;
+    private TipoVeiculoService service;
 
     @GetMapping
-    public ResponseEntity<Collection<AcessorioResponse>> findAll(
+    public ResponseEntity<Collection<TipoVeiculoResponse>> findAll(
             @RequestParam(name = "nome", required = false) String nome
     ){
-        Acessorio acessorio = Acessorio.builder()
+        TipoVeiculo tipo = TipoVeiculo.builder()
                 .nome(nome)
                 .build();
 
@@ -36,7 +38,7 @@ public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioReques
                 .withMatcher("nome", ExampleMatcher.GenericPropertyMatchers.contains());
 
 
-        Example<Acessorio> example = Example.of(acessorio, matcher);
+        Example<TipoVeiculo> example = Example.of(tipo, matcher);
         var encontrados = service.findAll(example);
 
         if(encontrados.isEmpty()) return ResponseEntity.notFound().build();
@@ -49,9 +51,9 @@ public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioReques
 
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "{id}")
     @Override
-    public ResponseEntity<AcessorioResponse> findById(@PathVariable Long id) {
+    public ResponseEntity<TipoVeiculoResponse> findById(@PathVariable Long id) {
         var encontrado = service.findById( id );
         if (encontrado == null) return ResponseEntity.notFound().build();
         var resposta = service.toResponse( encontrado );
@@ -61,8 +63,7 @@ public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioReques
     @Override
     @Transactional
     @PostMapping
-    public ResponseEntity<AcessorioResponse> save(@RequestBody @Valid AcessorioRequest r) {
-
+    public ResponseEntity<TipoVeiculoResponse> save(@RequestBody @Valid TipoVeiculoRequest r) {
         var entity = service.toEntity( r );
         var saved = service.save( entity );
         var resposta = service.toResponse( saved );

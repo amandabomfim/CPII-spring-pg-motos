@@ -24,7 +24,6 @@ public class Caracteristica {
     private Long id;
 
     //30 digitos
-    @Size(min = 30)
     @Column(name = "NM_CARACTERISTICA")
     private String nome;
 

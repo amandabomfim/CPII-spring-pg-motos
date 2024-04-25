@@ -8,6 +8,7 @@ import java.time.Year;
 
 @Builder
 public record VeiculoResponse(
+    Long id,
     String nome,
     Year anoDeFabricacao,
     String cor,

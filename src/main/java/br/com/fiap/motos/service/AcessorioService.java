@@ -42,6 +42,7 @@ public class AcessorioService implements ServiceDTO<Acessorio, AcessorioRequest,
     @Override
     public AcessorioResponse toResponse(Acessorio e) {
         return AcessorioResponse.builder()
+                .id(e.getId())
                 .nome(e.getNome())
                 .preco(e.getPreco())
                 .build();

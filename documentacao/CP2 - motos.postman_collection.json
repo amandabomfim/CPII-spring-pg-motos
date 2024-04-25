@@ -1,0 +1,576 @@
+{
+	"info": {
+		"_postman_id": "236e3f4f-19d8-42ed-ab6b-00b5bd5129be",
+		"name": "CP2 - motos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30321921"
+	},
+	"item": [
+		{
+			"name": "acessorio",
+			"item": [
+				{
+					"name": "acessorio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Kit Multimídia\",\r\n  \"preco\": 1100.99\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/acessorio",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"acessorio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "acessorio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/acessorio?nome=kit",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"acessorio"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "kit"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "acessorio id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/acessorio/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"acessorio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tipo-veiculo",
+			"item": [
+				{
+					"name": "tipo-veiculo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Carro\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/tipo-veiculo",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tipo-veiculo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tipo-veiculo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/tipo-veiculo?nome=carro",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tipo-veiculo"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "carro"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tipo-veiculo id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/tipo-veiculo/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tipo-veiculo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fabricante",
+			"item": [
+				{
+					"name": "fabricante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Toyota\",\r\n  \"nomeFantasia\": \"Toyota Motors\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/fabricante",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"fabricante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fabricante",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/fabricante?nomeFantasia=moto&nome=toy",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"fabricante"
+							],
+							"query": [
+								{
+									"key": "nomeFantasia",
+									"value": "moto"
+								},
+								{
+									"key": "nome",
+									"value": "toy"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fabricante",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/tipo-veiculo/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tipo-veiculo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "veiculos",
+			"item": [
+				{
+					"name": "veiculos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Toyota Corolla\",\r\n  \"anoDeFabricacao\": \"2022\",\r\n  \"cor\": \"Prata\",\r\n  \"preco\": 100000.00,\r\n  \"cilindradas\": 2000,\r\n  \"modelo\": \"GLI 2.0\",\r\n  \"palavraDeEfeito\": \"Conforto\",\r\n  \"fabricante\": { \"id\": 1 },\r\n  \"tipo\": { \"id\": 1 }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/veiculos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "veiculos/{id}/acessorios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Painel Led\",\r\n    \"preco\": 300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/veiculos/2/acessorios",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"veiculos",
+								"2",
+								"acessorios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "veiculos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/veiculos?preco=100000&modelo=GLI 2.0&anoDeFabricacao=2022&nome=Corolla&tipo.id=1&fabricante.id=1&cor=Prata&cilindradas=2000",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"veiculos"
+							],
+							"query": [
+								{
+									"key": "preco",
+									"value": "100000"
+								},
+								{
+									"key": "modelo",
+									"value": "GLI 2.0"
+								},
+								{
+									"key": "anoDeFabricacao",
+									"value": "2022"
+								},
+								{
+									"key": "nome",
+									"value": "Corolla"
+								},
+								{
+									"key": "tipo.id",
+									"value": "1"
+								},
+								{
+									"key": "fabricante.id",
+									"value": "1"
+								},
+								{
+									"key": "cor",
+									"value": "Prata"
+								},
+								{
+									"key": "cilindradas",
+									"value": "2000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "veiculos/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/veiculos/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"veiculos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "veiculos/{id}/acessorios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/veiculos/2/acessorios",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"veiculos",
+								"2",
+								"acessorios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "caracteristicas",
+			"item": [
+				{
+					"name": "caracteristicas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"veiculo\": {\"id\": 2},\r\n    \"nome\": \"Potência\",\r\n    \"descricao\": \"Potência do motor em cavalos de força (HP)\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/caracteristicas",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "caracteristicas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/caracteristicas?veiculo.id=2&descricao=cavalos&nome=Potência",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"caracteristicas"
+							],
+							"query": [
+								{
+									"key": "veiculo.id",
+									"value": "2"
+								},
+								{
+									"key": "descricao",
+									"value": "cavalos"
+								},
+								{
+									"key": "nome",
+									"value": "Potência"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "caracteristicas/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/caracteristicas/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"caracteristicas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "loja",
+			"item": [
+				{
+					"name": "loja",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Concessionária ABC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/loja",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"loja"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loja/{id}/veiculos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Toyota RAV4\",\r\n  \"anoDeFabricacao\": \"2024\",\r\n  \"cor\": \"Azul\",\r\n  \"preco\": 110000.00,\r\n  \"cilindradas\": 2500,\r\n  \"modelo\": \"XLE Hybrid\",\r\n  \"palavraDeEfeito\": \"Versatilidade\",\r\n  \"fabricante\": { \"id\": 1 },\r\n  \"tipo\": { \"id\": 1 }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/loja/1/veiculos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"loja",
+								"1",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loja",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/loja?nome=abc",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"loja"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "abc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loja/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/loja/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"loja",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loja/{id}/veiculos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/loja/1/veiculos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"loja",
+								"1",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

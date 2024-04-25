@@ -1,9 +1,11 @@
 package br.com.fiap.motos.resource;
 
-import br.com.fiap.motos.dto.request.AcessorioRequest;
+import br.com.fiap.motos.dto.request.FabricanteRequest;
 import br.com.fiap.motos.dto.response.AcessorioResponse;
-import br.com.fiap.motos.entity.Acessorio;
-import br.com.fiap.motos.service.AcessorioService;
+import br.com.fiap.motos.dto.response.FabricanteResponse;
+import br.com.fiap.motos.entity.Fabricante;
+import br.com.fiap.motos.repository.FabricanteRepository;
+import br.com.fiap.motos.service.FabricanteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -16,27 +18,29 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.util.Collection;
 
 @RestController
-@RequestMapping(value = "/acessorio")
-public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioRequest, AcessorioResponse>{
+@RequestMapping(value = "/fabricante")
+public class FabricanteResource implements ResourceDTO<Fabricante, FabricanteRequest, FabricanteResponse>{
 
     @Autowired
-    private AcessorioService service;
+    private FabricanteService service;
 
     @GetMapping
-    public ResponseEntity<Collection<AcessorioResponse>> findAll(
-            @RequestParam(name = "nome", required = false) String nome
+    public ResponseEntity<Collection<FabricanteResponse>> findAll(
+            @RequestParam(name = "nome", required = false) String nome,
+            @RequestParam(name = "nomeFantasia", required = false) String nomeFantasia
     ){
-        Acessorio acessorio = Acessorio.builder()
+        Fabricante fabricante = Fabricante.builder()
                 .nome(nome)
+                .nomeFantasia(nomeFantasia)
                 .build();
 
         ExampleMatcher matcher = ExampleMatcher.matchingAll()
                 .withIgnoreNullValues()
                 .withIgnoreCase()
-                .withMatcher("nome", ExampleMatcher.GenericPropertyMatchers.contains());
+                .withMatcher("nome", ExampleMatcher.GenericPropertyMatchers.contains())
+                .withMatcher("nomeFantasia", ExampleMatcher.GenericPropertyMatchers.contains());
 
-
-        Example<Acessorio> example = Example.of(acessorio, matcher);
+        Example<Fabricante> example = Example.of(fabricante, matcher);
         var encontrados = service.findAll(example);
 
         if(encontrados.isEmpty()) return ResponseEntity.notFound().build();
@@ -46,12 +50,11 @@ public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioReques
                 .toList();
 
         return ResponseEntity.ok( resposta );
-
     }
 
     @GetMapping(value = "/{id}")
     @Override
-    public ResponseEntity<AcessorioResponse> findById(@PathVariable Long id) {
+    public ResponseEntity<FabricanteResponse> findById(@PathVariable Long id) {
         var encontrado = service.findById( id );
         if (encontrado == null) return ResponseEntity.notFound().build();
         var resposta = service.toResponse( encontrado );
@@ -61,8 +64,7 @@ public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioReques
     @Override
     @Transactional
     @PostMapping
-    public ResponseEntity<AcessorioResponse> save(@RequestBody @Valid AcessorioRequest r) {
-
+    public ResponseEntity<FabricanteResponse> save(@RequestBody @Valid FabricanteRequest r) {
         var entity = service.toEntity( r );
         var saved = service.save( entity );
         var resposta = service.toResponse( saved );

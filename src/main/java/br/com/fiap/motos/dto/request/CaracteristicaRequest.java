@@ -10,6 +10,6 @@ public record CaracteristicaRequest(
         @NotNull(message = "Descricao é necessária!")
         String descricao,
         @Valid @NotNull(message = "É necessário informar os dados do veiculo")
-                AbstractRequest veiculo
+        AbstractRequest veiculo
         ) {
 }

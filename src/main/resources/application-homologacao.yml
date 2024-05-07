@@ -7,4 +7,12 @@ spring:
     show-sql: true
     open-in-view: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    supportedSubMethods: "get"
+  api-docs:
+    enabled: true

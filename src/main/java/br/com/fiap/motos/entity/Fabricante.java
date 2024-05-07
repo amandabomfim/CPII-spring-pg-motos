@@ -28,6 +28,16 @@ public class Fabricante {
     @Column(name = "NM_FANTASIA")
     private String nomeFantasia;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "ID_FOTO",
+            referencedColumnName = "ID_FOTO",
+            foreignKey = @ForeignKey(
+                    name = "FK_FOTO_FABRICANTE"
+            )
+    )
+    private Foto logo;
+
 
 
 }
